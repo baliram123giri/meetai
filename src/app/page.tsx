@@ -117,7 +117,14 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center min-h-screen gap-4">
         <h1 className="text-2xl font-bold">Welcome, {session.user.name}!</h1>
         <p className="text-lg">You are already logged in.</p>
-        <Button variant={"destructive"} onClick={() => authClient.signOut()}>
+        <Button
+          variant={"destructive"}
+          onClick={() =>
+            authClient
+              .signOut()
+              .then(() => (window.location.pathname = "/sign-in"))
+          }
+        >
           Sign Out
         </Button>
       </div>
