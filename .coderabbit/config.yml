@@ -1,0 +1,5 @@
+review:
+  languages: [typescript, javascript]
+  rules:
+    - "Avoid inline styles"
+    - "Prefer const over let when possible"
