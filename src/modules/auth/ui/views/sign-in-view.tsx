@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
   Form,
@@ -126,11 +128,37 @@ export default function SignInView() {
                 </span>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <Button type="button" variant="outline" className="w-full">
-                  <span className="text-sm">Google</span>
+                <Button
+                  disabled={isPending}
+                  onClick={() => {
+                    setIsPending(true);
+                    authClient.signIn
+                      .social({
+                        provider: "google",
+                      })
+                      .then(() => setIsPending(false));
+                  }}
+                  type="button"
+                  variant="outline"
+                  className="w-full cursor-pointer"
+                >
+                  <FcGoogle /> <span className="text-sm">Google</span>
                 </Button>
-                <Button type="button" variant="outline" className="w-full">
-                  <span className="text-sm">GitHub</span>
+                <Button
+                  disabled={isPending}
+                  onClick={() => {
+                    setIsPending(true);
+                    authClient.signIn
+                      .social({
+                        provider: "github",
+                      })
+                      .then(() => setIsPending(false));
+                  }}
+                  type="button"
+                  variant="outline"
+                  className="w-full cursor-pointer"
+                >
+                  <FaGithub /> <span className="text-sm">GitHub</span>
                 </Button>
               </div>
               <div className="text-sm mt-4 text-center">
