@@ -30,9 +30,9 @@ const LoginForm: React.FC = () => {
       password: "",
     },
   });
-  const onSubmit = (data: LoginFormData) => {
+  const onSubmit = async (data: LoginFormData) => {
     // handle form submission
-    authClient.signIn.email(data, {
+    await authClient.signIn.email(data, {
       onError() {
         alert("An error occurred during Sign In.");
       },
@@ -40,7 +40,6 @@ const LoginForm: React.FC = () => {
         alert("Sign In successful!");
       },
     });
-    console.log(data);
   };
 
   return (
@@ -94,9 +93,9 @@ export default function Home() {
     },
   });
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     // handle form submission
-    authClient.signUp.email(data, {
+    await authClient.signUp.email(data, {
       onError() {
         alert("An error occurred during registration.");
       },
@@ -104,7 +103,6 @@ export default function Home() {
         alert("Registration successful!");
       },
     });
-    console.log(data);
   };
 
   if (isPending) {
