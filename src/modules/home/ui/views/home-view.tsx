@@ -26,7 +26,7 @@ export default function HomeView() {
         <h1 className="text-2xl font-bold">Welcome, {session.user.name}!</h1>
         <p className="text-lg">You are already logged in.</p>
         <Button
-          variant={"destructive"}
+          variant={"default"}
           onClick={() =>
             authClient
               .signOut()
