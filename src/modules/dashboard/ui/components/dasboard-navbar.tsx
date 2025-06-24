@@ -13,7 +13,6 @@ export default function DasboardNavbar() {
   };
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      e.preventDefault();
       if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
         setOpen((prev) => !prev);
       }

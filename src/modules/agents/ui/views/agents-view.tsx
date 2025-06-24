@@ -13,7 +13,7 @@ export default function AgentsView() {
   return (
     <div>
       <ResponsiveDialog
-        open={true}
+        open={false}
         onOpenChange={() => {}}
         title="Agents"
         description="List of agents"
